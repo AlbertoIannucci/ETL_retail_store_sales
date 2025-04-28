@@ -94,8 +94,8 @@ def load_dati_db(df_sistemato):
         connection = getconnection()
         try:
             with connection.cursor() as cursor:
-                # Prepara una lista di tuple con i dati da inserire
-                values = [
+                # Preparo una lista di tuple con i dati da inserire
+                valori = [
                     (
                         row["id_transaction"],
                         row["id_customer"],
@@ -119,8 +119,8 @@ def load_dati_db(df_sistemato):
                 VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);
                 """
                 
-                # Esegui l'inserimento in batch con executemany
-                cursor.executemany(sql, values)
+                # Eseguo l'inserimento in batch con executemany
+                cursor.executemany(sql, valori)
                 connection.commit()
                 print("Dati esportati con successo.")
         finally:
